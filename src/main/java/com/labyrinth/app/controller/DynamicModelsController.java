@@ -79,7 +79,7 @@ public class DynamicModelsController {
  
 		Map<String, Object> modelStructureMap = new HashMap<String, Object>();
 		List<Map<String, Object>> modelColumns = new ArrayList<Map<String, Object>>();
-		int n=0, x=10,y=20; m=0;
+		int n=0, x=10,y=20; 
 		int add;
 		
 		
@@ -107,7 +107,7 @@ public class DynamicModelsController {
 						columnMap.put("data", columnMetadataMap);
 
 						System.out.println(1200/n);
-						System.out.println(200/m);
+						
 						
 						
 						
@@ -158,7 +158,7 @@ public class DynamicModelsController {
 						columnMap.put("columnName", field.getName());
 						columnMap.put("data", columnMetadataMap);
 
-						System.out.println(1200/n);
+						System.out.println(100/n);
 						
 						add= x+y;
  
