@@ -79,7 +79,7 @@ public class DynamicModelsController {
  
 		Map<String, Object> modelStructureMap = new HashMap<String, Object>();
 		List<Map<String, Object>> modelColumns = new ArrayList<Map<String, Object>>();
-		int n=0, x=10,y=20;
+		int n=0, x=10,y=20; m=0;
 		int add;
 		
 		
@@ -107,6 +107,9 @@ public class DynamicModelsController {
 						columnMap.put("data", columnMetadataMap);
 
 						System.out.println(1200/n);
+						System.out.println(200/m);
+						
+						
 						
 						add= x+y;
  
@@ -115,6 +118,30 @@ public class DynamicModelsController {
  
 				}
 				
+				for (Field field : modelFields) {
+					if (field.getName().equals(modelName + "ID")) {
+						modelStructureMap.put("primaryKey", modelName + "ID");
+						// continue;
+					} else {
+						Map<String, Object> columnMap = new HashMap<String, Object>();
+						Map<String, String> columnMetadataMap = new HashMap<String, String>();
+ 
+						add=x+y;	
+						columnMetadataMap.put("inputType", typeMap.get(field.getType().getName()));
+						columnMetadataMap.put("required", "true");
+						columnMetadataMap.put("placeholder", "Enter " + field.getName());
+ 
+						columnMap.put("columnName", field.getName());
+						columnMap.put("data", columnMetadataMap);
+
+						System.out.println(1200/n);
+						
+						add= x+y;
+ 
+						modelColumns.add(columnMap);
+					}
+ 
+				}
 				for (Field field : modelFields) {
 					if (field.getName().equals(modelName + "ID")) {
 						modelStructureMap.put("primaryKey", modelName + "ID");
