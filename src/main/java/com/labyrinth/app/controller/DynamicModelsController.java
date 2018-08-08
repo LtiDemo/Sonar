@@ -119,4 +119,3 @@ public class DynamicModelsController {
 		return modelStructureMap;
 	}
  
-}
