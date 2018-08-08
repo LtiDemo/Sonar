@@ -124,3 +124,27 @@ public class DynamicModelsController {
 	}
  
 }
+ public class UpdateOrderReadyShipEndPoint extends BaseOrderEndPoint {
+    private final static String API_NAME = "setStatusToReadyToShip";
+
+    @Override
+    public String getSourceEndPoint() {
+    return new StringBuilder("direct:").append(API_NAME).toString();
+    }
+
+    @Override
+    public String getDestinationEndPoint() {
+    return new StringBuilder("bean:orderHelper?method=").append(API_NAME).toString();
+    }
+
+    @Override
+    protected String getName() {
+    return API_NAME;
+    }
+
+    @Override
+    protected String getApiInputClassName() {
+    return UpdateOrderStatusReadyShipRequest.class.getName();
+    }
+} 
+ 
