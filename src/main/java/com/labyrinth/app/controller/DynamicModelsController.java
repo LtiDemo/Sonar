@@ -79,6 +79,8 @@ public class DynamicModelsController {
  
 		Map<String, Object> modelStructureMap = new HashMap<String, Object>();
 		List<Map<String, Object>> modelColumns = new ArrayList<Map<String, Object>>();
+		int n=0;
+		
  
 		try {
 			Class<?> modelClass = Class.forName("main.java.com.labyrinth.app.model." + modelName);
@@ -100,6 +102,8 @@ public class DynamicModelsController {
  
 						columnMap.put("columnName", field.getName());
 						columnMap.put("data", columnMetadataMap);
+
+						System.out.println(1200/n);
  
 						modelColumns.add(columnMap);
 					}
