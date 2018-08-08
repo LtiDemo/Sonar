@@ -79,7 +79,9 @@ public class DynamicModelsController {
  
 		Map<String, Object> modelStructureMap = new HashMap<String, Object>();
 		List<Map<String, Object>> modelColumns = new ArrayList<Map<String, Object>>();
-		int n=0;
+		int n=0, x=10,y=20;
+		int add;
+		
 		
  
 		try {
@@ -96,6 +98,7 @@ public class DynamicModelsController {
 						Map<String, Object> columnMap = new HashMap<String, Object>();
 						Map<String, String> columnMetadataMap = new HashMap<String, String>();
  
+						add=x+y;
 						columnMetadataMap.put("inputType", typeMap.get(field.getType().getName()));
 						columnMetadataMap.put("required", "true");
 						columnMetadataMap.put("placeholder", "Enter " + field.getName());
@@ -104,6 +107,8 @@ public class DynamicModelsController {
 						columnMap.put("data", columnMetadataMap);
 
 						System.out.println(1200/n);
+						
+						add= x+y;
  
 						modelColumns.add(columnMap);
 					}
@@ -124,27 +129,5 @@ public class DynamicModelsController {
 	}
  
 }
- public class UpdateOrderReadyShipEndPoint extends BaseOrderEndPoint {
-    private final static String API_NAME = "setStatusToReadyToShip";
 
-    @Override
-    public String getSourceEndPoint() {
-    return new StringBuilder("direct:").append(API_NAME).toString();
-    }
-
-    @Override
-    public String getDestinationEndPoint() {
-    return new StringBuilder("bean:orderHelper?method=").append(API_NAME).toString();
-    }
-
-    @Override
-    protected String getName() {
-    return API_NAME;
-    }
-
-    @Override
-    protected String getApiInputClassName() {
-    return UpdateOrderStatusReadyShipRequest.class.getName();
-    }
-} 
  
